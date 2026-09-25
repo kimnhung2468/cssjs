@@ -22,8 +22,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/images/hero-background.jpg" media="(min-width: 768px)">
-  <link rel="preload" as="image" href="assets/images/hero-background-mobile.jpg" media="(max-width: 767px)">
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Google Tag Manager / Facebook Pixel: dán mã tracking vào đây nếu có -->
@@ -70,10 +68,10 @@
 
     <!-- ================= HERO ================= -->
     <section class="hero">
-      <picture class="hero__bg">
-        <source media="(max-width: 767px)" srcset="assets/images/hero-background-mobile.jpg">
-        <img src="assets/images/hero-background.jpg" alt="Phối cảnh Arcadia at Lavila" fetchpriority="high">
-      </picture>
+      <div class="hero__bg">
+        <img class="only-desktop" src="assets/images/hero-background.jpg" alt="Phối cảnh Arcadia at Lavila" fetchpriority="high">
+        <img class="only-mobile" src="assets/images/hero-background-mobile.jpg" alt="Phối cảnh Arcadia at Lavila">
+      </div>
 
       <div class="container hero__content">
         <div>
@@ -107,6 +105,7 @@
 
     <!-- ================= LAVILA TOWNSHIP ================= -->
     <section class="section township" id="lavila">
+      <div class="township__bg"><img class="only-desktop" src="assets/images/township-foundation-bg-cloudy.jpg" alt="" loading="lazy"><img class="only-mobile" src="assets/images/township-foundation-bg-mobile.jpg" alt="" loading="lazy"></div>
       <div class="container township__grid">
         <div class="township__text reveal">
           <span class="eyebrow">Nền tảng khu đô thị</span>
@@ -311,7 +310,7 @@
             </div>
           </div>
 
-          <div class="location__map reveal reveal--d1" data-lightbox="assets/images/location-connectivity/web-map.jpg" data-caption="Bản đồ vị trí Arcadia at Lavila">
+          <div class="location__map reveal reveal--d1" data-lightbox data-caption="Bản đồ vị trí Arcadia at Lavila">
             <img src="assets/images/location-connectivity/web-map.jpg" alt="Bản đồ vị trí Arcadia at Lavila" loading="lazy">
             <div class="location__map-actions">
               <span class="chip"><img src="assets/icons/location-connectivity/search-plus.svg" alt="">Phóng to</span>
@@ -333,12 +332,34 @@
         </div>
         <div class="reveal">
           <div class="slider" id="slider">
-            <div class="slider__track" id="sliderTrack"><!-- JS tự tạo slide từ danh sách GALLERY --></div>
+            <div class="slider__track" id="sliderTrack">
+              <figure class="slide"><img src="assets/images/slideshow/01.jpg" alt="Đường đi bộ" loading="eager" draggable="false"><figcaption>Đường đi bộ</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/02.jpg" alt="Khán đài bên hồ" loading="lazy" draggable="false"><figcaption>Khán đài bên hồ</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/03.jpg" alt="Sảnh đón biểu tượng" loading="lazy" draggable="false"><figcaption>Sảnh đón biểu tượng</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/04.jpg" alt="Trung tâm mua sắm" loading="lazy" draggable="false"><figcaption>Trung tâm mua sắm</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/05.jpg" alt="Trung tâm mua sắm" loading="lazy" draggable="false"><figcaption>Trung tâm mua sắm</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/06.jpg" alt="Tuyến phố thương mại Arcade" loading="lazy" draggable="false"><figcaption>Tuyến phố thương mại Arcade</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/07.jpg" alt="Tuyến phố thương mại Arcade" loading="lazy" draggable="false"><figcaption>Tuyến phố thương mại Arcade</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/08.jpg" alt="Hồ bơi biểu tượng" loading="lazy" draggable="false"><figcaption>Hồ bơi biểu tượng</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/09.jpg" alt="Sàn yoga trên cao" loading="lazy" draggable="false"><figcaption>Sàn yoga trên cao</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/10.jpg" alt="Không gian tập trên cao" loading="lazy" draggable="false"><figcaption>Không gian tập trên cao</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/11.jpg" alt="Phòng khách cộng đồng" loading="lazy" draggable="false"><figcaption>Phòng khách cộng đồng</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/12.jpg" alt="Không gian vui chơi trẻ em" loading="lazy" draggable="false"><figcaption>Không gian vui chơi trẻ em</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/13.png" alt="Khu vui chơi trẻ em" loading="lazy" draggable="false"><figcaption>Khu vui chơi trẻ em</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/14.jpg" alt="Phòng giải trí đa phương tiện" loading="lazy" draggable="false"><figcaption>Phòng giải trí đa phương tiện</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/15.jpg" alt="Phòng khách – Căn hộ điển hình" loading="lazy" draggable="false"><figcaption>Phòng khách – Căn hộ điển hình</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/16.jpg" alt="Phòng ngủ chính – Căn hộ điển hình" loading="lazy" draggable="false"><figcaption>Phòng ngủ chính – Căn hộ điển hình</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/17.jpg" alt="Phòng ngủ chính – Căn hộ điển hình" loading="lazy" draggable="false"><figcaption>Phòng ngủ chính – Căn hộ điển hình</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/18.jpg" alt="Phòng bếp – Căn hộ điển hình" loading="lazy" draggable="false"><figcaption>Phòng bếp – Căn hộ điển hình</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/19.jpg" alt="Phòng bếp – Căn hộ điển hình" loading="lazy" draggable="false"><figcaption>Phòng bếp – Căn hộ điển hình</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/20.jpg" alt="Phòng ngủ trẻ em – Căn hộ điển hình" loading="lazy" draggable="false"><figcaption>Phòng ngủ trẻ em – Căn hộ điển hình</figcaption></figure>
+              <figure class="slide"><img src="assets/images/slideshow/21.jpg" alt="Ban công – Căn hộ điển hình" loading="lazy" draggable="false"><figcaption>Ban công – Căn hộ điển hình</figcaption></figure>
+            </div>
             <button class="slider__arrow slider__arrow--prev" id="slidePrev" aria-label="Ảnh trước"><img src="assets/icons/slideshow/arrow-left.svg" alt=""></button>
             <button class="slider__arrow slider__arrow--next" id="slideNext" aria-label="Ảnh sau"><img src="assets/icons/slideshow/arrow-right.svg" alt=""></button>
             <div class="slider__count" id="slideCount"></div>
           </div>
-          <div class="thumbs" id="sliderThumbs"></div>
+          <div class="thumbs" id="sliderThumbs"><!-- JS tự tạo ảnh nhỏ từ các slide --></div>
         </div>
       </div>
     </section>
@@ -362,10 +383,10 @@
 
         <div class="amenities__stage reveal">
           <div class="am-panel is-active" data-panel="am">
-            <picture class="am-panel__img" data-lightbox="assets/images/amenities/v2_desktop/vi_level-1-ground-floor.jpg" data-caption="Mặt bằng tiện ích tầng 1">
-              <source media="(max-width: 767px)" srcset="assets/images/amenities/v2_mobile/mb-vi_level-1-ground-floor.jpg">
-              <img src="assets/images/amenities/v2_desktop/vi_level-1-ground-floor.jpg" alt="Mặt bằng tiện ích tầng 1" loading="lazy">
-            </picture>
+            <div class="am-panel__img" data-lightbox data-caption="Mặt bằng tiện ích tầng 1">
+              <img class="only-desktop" src="assets/images/amenities/v2_desktop/vi_level-1-ground-floor.jpg" alt="Mặt bằng tiện ích tầng 1" loading="lazy">
+              <img class="only-mobile" src="assets/images/amenities/v2_mobile/mb-vi_level-1-ground-floor.jpg" alt="Mặt bằng tiện ích tầng 1" loading="lazy">
+            </div>
             <ul class="am-legend">
               <li><b>01</b>Tuyến phố thương mại (Tháp Bắc)</li>
               <li><b>02</b>Tuyến phố thương mại (Tháp Nam)</li>
@@ -378,20 +399,20 @@
             </ul>
           </div>
           <div class="am-panel" data-panel="am">
-            <picture class="am-panel__img" data-lightbox="assets/images/amenities/v2_desktop/vi_level-3.jpg" data-caption="Mặt bằng tiện ích tầng 3">
-              <source media="(max-width: 767px)" srcset="assets/images/amenities/v2_mobile/mb-vi_level-3.jpg">
-              <img src="assets/images/amenities/v2_desktop/vi_level-3.jpg" alt="Mặt bằng tiện ích tầng 3" loading="lazy">
-            </picture>
+            <div class="am-panel__img" data-lightbox data-caption="Mặt bằng tiện ích tầng 3">
+              <img class="only-desktop" src="assets/images/amenities/v2_desktop/vi_level-3.jpg" alt="Mặt bằng tiện ích tầng 3" loading="lazy">
+              <img class="only-mobile" src="assets/images/amenities/v2_mobile/mb-vi_level-3.jpg" alt="Mặt bằng tiện ích tầng 3" loading="lazy">
+            </div>
             <ul class="am-legend">
               <li><b>09</b>Trường mầm non</li>
               <li><b>10</b>Kho lưu trữ cư dân</li>
             </ul>
           </div>
           <div class="am-panel" data-panel="am">
-            <picture class="am-panel__img" data-lightbox="assets/images/amenities/v2_desktop/vi_level-4.jpg" data-caption="Mặt bằng tiện ích tầng 4">
-              <source media="(max-width: 767px)" srcset="assets/images/amenities/v2_mobile/mb-vi_level-4.jpg">
-              <img src="assets/images/amenities/v2_desktop/vi_level-4.jpg" alt="Mặt bằng tiện ích tầng 4" loading="lazy">
-            </picture>
+            <div class="am-panel__img" data-lightbox data-caption="Mặt bằng tiện ích tầng 4">
+              <img class="only-desktop" src="assets/images/amenities/v2_desktop/vi_level-4.jpg" alt="Mặt bằng tiện ích tầng 4" loading="lazy">
+              <img class="only-mobile" src="assets/images/amenities/v2_mobile/mb-vi_level-4.jpg" alt="Mặt bằng tiện ích tầng 4" loading="lazy">
+            </div>
             <ul class="am-legend">
               <li><b>11</b>Phòng giải trí đa phương tiện</li>
               <li><b>12</b>Không gian sáng tạo</li>
@@ -405,10 +426,10 @@
             </ul>
           </div>
           <div class="am-panel" data-panel="am">
-            <picture class="am-panel__img" data-lightbox="assets/images/amenities/v2_desktop/vi_level-5.jpg" data-caption="Mặt bằng tiện ích tầng 5">
-              <source media="(max-width: 767px)" srcset="assets/images/amenities/v2_mobile/mb-vi_level-5.jpg">
-              <img src="assets/images/amenities/v2_desktop/vi_level-5.jpg" alt="Mặt bằng tiện ích tầng 5" loading="lazy">
-            </picture>
+            <div class="am-panel__img" data-lightbox data-caption="Mặt bằng tiện ích tầng 5">
+              <img class="only-desktop" src="assets/images/amenities/v2_desktop/vi_level-5.jpg" alt="Mặt bằng tiện ích tầng 5" loading="lazy">
+              <img class="only-mobile" src="assets/images/amenities/v2_mobile/mb-vi_level-5.jpg" alt="Mặt bằng tiện ích tầng 5" loading="lazy">
+            </div>
             <ul class="am-legend">
               <li><b>20</b>Hồ bơi biểu tượng</li>
               <li><b>21</b>Hồ bơi trẻ em</li>
@@ -429,10 +450,10 @@
             </ul>
           </div>
           <div class="am-panel" data-panel="am">
-            <picture class="am-panel__img" data-lightbox="assets/images/amenities/v2_desktop/vi_level-21.jpg" data-caption="Mặt bằng tiện ích tầng 21">
-              <source media="(max-width: 767px)" srcset="assets/images/amenities/v2_mobile/mb-vi_level-21.jpg">
-              <img src="assets/images/amenities/v2_desktop/vi_level-21.jpg" alt="Mặt bằng tiện ích tầng 21" loading="lazy">
-            </picture>
+            <div class="am-panel__img" data-lightbox data-caption="Mặt bằng tiện ích tầng 21">
+              <img class="only-desktop" src="assets/images/amenities/v2_desktop/vi_level-21.jpg" alt="Mặt bằng tiện ích tầng 21" loading="lazy">
+              <img class="only-mobile" src="assets/images/amenities/v2_mobile/mb-vi_level-21.jpg" alt="Mặt bằng tiện ích tầng 21" loading="lazy">
+            </div>
             <ul class="am-legend">
               <li><b>36</b>Khu vui chơi trẻ em</li>
               <li><b>37</b>Vườn hoa nghệ thuật</li>
@@ -457,7 +478,7 @@
             <p>Đa dạng loại hình căn hộ từ 1 đến 3 phòng ngủ, diện tích thông thủy từ ~38 m² đến ~66 m², bố trí thông minh, tối ưu ánh sáng và thông gió tự nhiên.</p>
             <a href="#dang-ky" class="btn btn--navy" data-product="Căn hộ cao cấp">Nhận mặt bằng chi tiết</a>
           </div>
-          <figure class="reveal reveal--d1" data-lightbox="assets/images/master-plan/v2/floorplan_vi.png" data-caption="Mặt bằng tầng điển hình Arcadia at Lavila">
+          <figure class="reveal reveal--d1" data-lightbox data-caption="Mặt bằng tầng điển hình Arcadia at Lavila">
             <img src="assets/images/master-plan/v2/floorplan_vi.png" alt="Mặt bằng tầng điển hình Arcadia at Lavila" loading="lazy">
           </figure>
         </div>
@@ -473,7 +494,7 @@
         <!-- 1PN -->
         <div class="plan-panel is-active" data-panel="plan">
           <article class="plan-card" style="--accent:#AEB8D8">
-            <div class="plan-card__img" data-lightbox="assets/images/master-plan/v2/1-bedroom-01.png" data-caption="Căn 1PN – Tháp Bắc: 03, 06"><img src="assets/images/master-plan/v2/1-bedroom-01.png" alt="Mặt bằng căn hộ 1 phòng ngủ" loading="lazy"></div>
+            <div class="plan-card__img" data-lightbox data-caption="Căn 1PN – Tháp Bắc: 03, 06"><img src="assets/images/master-plan/v2/1-bedroom-01.png" alt="Mặt bằng căn hộ 1 phòng ngủ" loading="lazy"></div>
             <div class="plan-card__body">
               <h4>Căn 1PN – Tháp Bắc: 03, 06</h4>
               <dl><dt>Diện tích tim tường</dt><dd>~44,26 m²</dd><dt>Diện tích thông thủy</dt><dd>~38,26 m²</dd></dl>
@@ -485,7 +506,7 @@
         <!-- 2PN Harmonie -->
         <div class="plan-panel" data-panel="plan">
           <article class="plan-card" style="--accent:#FFE58F">
-            <div class="plan-card__img" data-lightbox="assets/images/master-plan/v2/2-bedroom-harmonie-01.png" data-caption="Căn 2PN Harmonie – Tháp Bắc: 10"><img src="assets/images/master-plan/v2/2-bedroom-harmonie-01.png" alt="Mặt bằng căn 2PN Harmonie" loading="lazy"></div>
+            <div class="plan-card__img" data-lightbox data-caption="Căn 2PN Harmonie – Tháp Bắc: 10"><img src="assets/images/master-plan/v2/2-bedroom-harmonie-01.png" alt="Mặt bằng căn 2PN Harmonie" loading="lazy"></div>
             <div class="plan-card__body">
               <h4>Căn 2PN Harmonie – Tháp Bắc: 10</h4>
               <dl><dt>Diện tích tim tường</dt><dd>~64,32 m²</dd><dt>Diện tích thông thủy</dt><dd>~56,12 m²</dd></dl>
@@ -493,7 +514,7 @@
             </div>
           </article>
           <article class="plan-card" style="--accent:#FFE58F">
-            <div class="plan-card__img" data-lightbox="assets/images/master-plan/v2/2-bedroom-harmonie-02.png" data-caption="Căn 2PN Harmonie – Tháp Bắc: 01, 08, 09, 15, 16; Tháp Nam: 01, 06, 07, 12"><img src="assets/images/master-plan/v2/2-bedroom-harmonie-02.png" alt="Mặt bằng căn 2PN Harmonie" loading="lazy"></div>
+            <div class="plan-card__img" data-lightbox data-caption="Căn 2PN Harmonie – Tháp Bắc: 01, 08, 09, 15, 16; Tháp Nam: 01, 06, 07, 12"><img src="assets/images/master-plan/v2/2-bedroom-harmonie-02.png" alt="Mặt bằng căn 2PN Harmonie" loading="lazy"></div>
             <div class="plan-card__body">
               <h4>Căn 2PN Harmonie – Tháp Bắc: 01, 08, 09, 15, 16; Tháp Nam: 01, 06, 07, 12</h4>
               <dl><dt>Diện tích tim tường</dt><dd>~65,76 m²</dd><dt>Diện tích thông thủy</dt><dd>~57,58 m²</dd></dl>
@@ -505,7 +526,7 @@
         <!-- 2PN Libre -->
         <div class="plan-panel" data-panel="plan">
           <article class="plan-card" style="--accent:#FFC4C4">
-            <div class="plan-card__img" data-lightbox="assets/images/master-plan/v2/2-bedroom-libre-01.png" data-caption="Căn 2PN Libre – Tháp Bắc: 11, 14"><img src="assets/images/master-plan/v2/2-bedroom-libre-01.png" alt="Mặt bằng căn 2PN Libre" loading="lazy"></div>
+            <div class="plan-card__img" data-lightbox data-caption="Căn 2PN Libre – Tháp Bắc: 11, 14"><img src="assets/images/master-plan/v2/2-bedroom-libre-01.png" alt="Mặt bằng căn 2PN Libre" loading="lazy"></div>
             <div class="plan-card__body">
               <h4>Căn 2PN Libre – Tháp Bắc: 11, 14</h4>
               <dl><dt>Diện tích tim tường</dt><dd>~68,02 m²</dd><dt>Diện tích thông thủy</dt><dd>~60,65 m²</dd></dl>
@@ -513,7 +534,7 @@
             </div>
           </article>
           <article class="plan-card" style="--accent:#FFC4C4">
-            <div class="plan-card__img" data-lightbox="assets/images/master-plan/v2/2-bedroom-libre-02.png" data-caption="Căn 2PN Libre – Tháp Bắc: 02, 07; Tháp Nam: 02, 05"><img src="assets/images/master-plan/v2/2-bedroom-libre-02.png" alt="Mặt bằng căn 2PN Libre" loading="lazy"></div>
+            <div class="plan-card__img" data-lightbox data-caption="Căn 2PN Libre – Tháp Bắc: 02, 07; Tháp Nam: 02, 05"><img src="assets/images/master-plan/v2/2-bedroom-libre-02.png" alt="Mặt bằng căn 2PN Libre" loading="lazy"></div>
             <div class="plan-card__body">
               <h4>Căn 2PN Libre – Tháp Bắc: 02, 07; Tháp Nam: 02, 05</h4>
               <dl><dt>Diện tích tim tường</dt><dd>~68,79 m²</dd><dt>Diện tích thông thủy</dt><dd>~61,19 m²</dd></dl>
@@ -521,7 +542,7 @@
             </div>
           </article>
           <article class="plan-card" style="--accent:#FFC4C4">
-            <div class="plan-card__img" data-lightbox="assets/images/master-plan/v2/2-bedroom-libre-03.png" data-caption="Căn 2PN Libre – Tháp Nam: 08, 11"><img src="assets/images/master-plan/v2/2-bedroom-libre-03.png" alt="Mặt bằng căn 2PN Libre" loading="lazy"></div>
+            <div class="plan-card__img" data-lightbox data-caption="Căn 2PN Libre – Tháp Nam: 08, 11"><img src="assets/images/master-plan/v2/2-bedroom-libre-03.png" alt="Mặt bằng căn 2PN Libre" loading="lazy"></div>
             <div class="plan-card__body">
               <h4>Căn 2PN Libre – Tháp Nam: 08, 11</h4>
               <dl><dt>Diện tích tim tường</dt><dd>~67,71 m²</dd><dt>Diện tích thông thủy</dt><dd>~60,30 m²</dd></dl>
@@ -533,7 +554,7 @@
         <!-- 2PN Góc -->
         <div class="plan-panel" data-panel="plan">
           <article class="plan-card" style="--accent:#C9A0E7">
-            <div class="plan-card__img" data-lightbox="assets/images/master-plan/v2/2-bedroom-corner-01.png" data-caption="Căn 2PN Góc – Tháp Bắc: 12, 13"><img src="assets/images/master-plan/v2/2-bedroom-corner-01.png" alt="Mặt bằng căn 2PN góc" loading="lazy"></div>
+            <div class="plan-card__img" data-lightbox data-caption="Căn 2PN Góc – Tháp Bắc: 12, 13"><img src="assets/images/master-plan/v2/2-bedroom-corner-01.png" alt="Mặt bằng căn 2PN góc" loading="lazy"></div>
             <div class="plan-card__body">
               <h4>Căn 2PN Góc – Tháp Bắc: 12, 13</h4>
               <dl><dt>Diện tích tim tường</dt><dd>~64,50 m²</dd><dt>Diện tích thông thủy</dt><dd>~56,96 m²</dd></dl>
@@ -541,7 +562,7 @@
             </div>
           </article>
           <article class="plan-card" style="--accent:#C9A0E7">
-            <div class="plan-card__img" data-lightbox="assets/images/master-plan/v2/2-bedroom-corner-02.png" data-caption="Căn 2PN Góc – Tháp Bắc: 04, 05"><img src="assets/images/master-plan/v2/2-bedroom-corner-02.png" alt="Mặt bằng căn 2PN góc" loading="lazy"></div>
+            <div class="plan-card__img" data-lightbox data-caption="Căn 2PN Góc – Tháp Bắc: 04, 05"><img src="assets/images/master-plan/v2/2-bedroom-corner-02.png" alt="Mặt bằng căn 2PN góc" loading="lazy"></div>
             <div class="plan-card__body">
               <h4>Căn 2PN Góc – Tháp Bắc: 04, 05</h4>
               <dl><dt>Diện tích tim tường</dt><dd>~65,08 m²</dd><dt>Diện tích thông thủy</dt><dd>~57,15 m²</dd></dl>
@@ -549,7 +570,7 @@
             </div>
           </article>
           <article class="plan-card" style="--accent:#C9A0E7">
-            <div class="plan-card__img" data-lightbox="assets/images/master-plan/v2/2-bedroom-corner-03.png" data-caption="Căn 2PN Góc – Tháp Nam: 03, 04"><img src="assets/images/master-plan/v2/2-bedroom-corner-03.png" alt="Mặt bằng căn 2PN góc" loading="lazy"></div>
+            <div class="plan-card__img" data-lightbox data-caption="Căn 2PN Góc – Tháp Nam: 03, 04"><img src="assets/images/master-plan/v2/2-bedroom-corner-03.png" alt="Mặt bằng căn 2PN góc" loading="lazy"></div>
             <div class="plan-card__body">
               <h4>Căn 2PN Góc – Tháp Nam: 03, 04</h4>
               <dl><dt>Diện tích tim tường</dt><dd>~66,30 m²</dd><dt>Diện tích thông thủy</dt><dd>~58,15 m²</dd></dl>
@@ -561,7 +582,7 @@
         <!-- 3PN -->
         <div class="plan-panel" data-panel="plan">
           <article class="plan-card" style="--accent:#9BD66A">
-            <div class="plan-card__img" data-lightbox="assets/images/master-plan/v2/3-bedroom-01.png" data-caption="Căn 3PN – Tháp Nam: 09"><img src="assets/images/master-plan/v2/3-bedroom-01.png" alt="Mặt bằng căn 3 phòng ngủ" loading="lazy"></div>
+            <div class="plan-card__img" data-lightbox data-caption="Căn 3PN – Tháp Nam: 09"><img src="assets/images/master-plan/v2/3-bedroom-01.png" alt="Mặt bằng căn 3 phòng ngủ" loading="lazy"></div>
             <div class="plan-card__body">
               <h4>Căn 3PN – Tháp Nam: 09</h4>
               <dl><dt>Diện tích tim tường</dt><dd>~75,84 m²</dd><dt>Diện tích thông thủy</dt><dd>~66,32 m²</dd></dl>
@@ -569,7 +590,7 @@
             </div>
           </article>
           <article class="plan-card" style="--accent:#9BD66A">
-            <div class="plan-card__img" data-lightbox="assets/images/master-plan/v2/3-bedroom-02.png" data-caption="Căn 3PN – Tháp Nam: 10"><img src="assets/images/master-plan/v2/3-bedroom-02.png" alt="Mặt bằng căn 3 phòng ngủ" loading="lazy"></div>
+            <div class="plan-card__img" data-lightbox data-caption="Căn 3PN – Tháp Nam: 10"><img src="assets/images/master-plan/v2/3-bedroom-02.png" alt="Mặt bằng căn 3 phòng ngủ" loading="lazy"></div>
             <div class="plan-card__body">
               <h4>Căn 3PN – Tháp Nam: 10</h4>
               <dl><dt>Diện tích tim tường</dt><dd>~75,73 m²</dd><dt>Diện tích thông thủy</dt><dd>~65,97 m²</dd></dl>

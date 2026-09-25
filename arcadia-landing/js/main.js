@@ -22,31 +22,6 @@ const CONFIG = {
   SHEET_URL: "",
 };
 
-/* Danh sách ảnh slider (ảnh + chú thích) */
-const GALLERY = [
-  ["01.jpg", "Đường đi bộ"],
-  ["02.jpg", "Khán đài bên hồ"],
-  ["03.jpg", "Sảnh đón biểu tượng"],
-  ["04.jpg", "Trung tâm mua sắm"],
-  ["05.jpg", "Trung tâm mua sắm"],
-  ["06.jpg", "Tuyến phố thương mại Arcade"],
-  ["07.jpg", "Tuyến phố thương mại Arcade"],
-  ["08.jpg", "Hồ bơi biểu tượng"],
-  ["09.jpg", "Sàn yoga trên cao"],
-  ["10.jpg", "Không gian tập trên cao"],
-  ["11.jpg", "Phòng khách cộng đồng"],
-  ["12.jpg", "Không gian vui chơi trẻ em"],
-  ["13.png", "Khu vui chơi trẻ em"],
-  ["14.jpg", "Phòng giải trí đa phương tiện"],
-  ["15.jpg", "Phòng khách – Căn hộ điển hình"],
-  ["16.jpg", "Phòng ngủ chính – Căn hộ điển hình"],
-  ["17.jpg", "Phòng ngủ chính – Căn hộ điển hình"],
-  ["18.jpg", "Phòng bếp – Căn hộ điển hình"],
-  ["19.jpg", "Phòng bếp – Căn hộ điển hình"],
-  ["20.jpg", "Phòng ngủ trẻ em – Căn hộ điển hình"],
-  ["21.jpg", "Ban công – Căn hộ điển hình"],
-];
-
 document.addEventListener("DOMContentLoaded", () => {
   applyConfig();
   initHeader();
@@ -115,7 +90,7 @@ function initMobileMenu() {
     burger.classList.toggle("is-open", open);
     menu.classList.toggle("is-open", open);
     burger.setAttribute("aria-expanded", open);
-    document.body.classList.toggle("no-scroll", open);
+    document.body.classList.toggle("alp-no-scroll", open);
     // Khi menu mở, header dùng màu trắng cho nổi trên nền navy
     if (open) header.classList.remove("is-scrolled");
     else header.classList.toggle("is-scrolled", window.scrollY > 60);
@@ -215,16 +190,18 @@ function initSlider() {
   const slider = document.getElementById("slider");
   if (!track) return;
 
-  GALLERY.forEach(([file, caption], i) => {
-    const src = "assets/images/slideshow/" + file;
-    track.insertAdjacentHTML(
-      "beforeend",
-      `<figure class="slide" style="margin:0"><img src="${src}" alt="${caption}" loading="${i === 0 ? "eager" : "lazy"}" draggable="false"><figcaption>${caption}</figcaption></figure>`
-    );
-    thumbs.insertAdjacentHTML(
-      "beforeend",
-      `<button aria-label="${caption}"><img src="${src}" alt="" loading="lazy"></button>`
-    );
+  // Tạo ảnh nhỏ (thumbnail) từ các slide có sẵn trong HTML
+  const slides = [...track.querySelectorAll(".slide")];
+  slides.forEach((slide) => {
+    const img = slide.querySelector("img");
+    const btn = document.createElement("button");
+    btn.setAttribute("aria-label", img.alt);
+    const thumb = document.createElement("img");
+    thumb.src = img.getAttribute("src");
+    thumb.alt = "";
+    thumb.loading = "lazy";
+    btn.appendChild(thumb);
+    thumbs.appendChild(btn);
   });
 
   const thumbBtns = thumbs.querySelectorAll("button");
@@ -232,9 +209,9 @@ function initSlider() {
   let timer;
 
   const go = (i) => {
-    current = (i + GALLERY.length) % GALLERY.length;
+    current = (i + slides.length) % slides.length;
     track.style.transform = `translateX(-${current * 100}%)`;
-    count.textContent = `${String(current + 1).padStart(2, "0")} / ${GALLERY.length}`;
+    count.textContent = `${String(current + 1).padStart(2, "0")} / ${slides.length}`;
     thumbBtns.forEach((b, idx) => b.classList.toggle("is-active", idx === current));
     const t = thumbBtns[current];
     thumbs.scrollTo({ left: t.offsetLeft - thumbs.clientWidth / 2 + t.clientWidth / 2, behavior: "smooth" });
@@ -275,7 +252,8 @@ function initLightbox() {
   document.querySelectorAll("[data-lightbox]").forEach((el) => {
     el.addEventListener("click", (e) => {
       if (e.target.closest("a")) return; // để link Google Map hoạt động bình thường
-      img.src = el.dataset.lightbox;
+      const inner = [...el.querySelectorAll("img")].find((i) => i.offsetParent !== null) || el.querySelector("img");
+      img.src = inner.currentSrc || inner.src;
       img.alt = el.dataset.caption || "";
       cap.textContent = el.dataset.caption || "";
       openLayer(box);
@@ -295,12 +273,12 @@ function initLightbox() {
 function openLayer(layer) {
   layer.classList.add("is-open");
   layer.setAttribute("aria-hidden", "false");
-  document.body.classList.add("no-scroll");
+  document.body.classList.add("alp-no-scroll");
 }
 function closeLayer(layer) {
   layer.classList.remove("is-open");
   layer.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("no-scroll");
+  document.body.classList.remove("alp-no-scroll");
 }
 
 /* ---------- Form đăng ký → Google Sheet ---------- */

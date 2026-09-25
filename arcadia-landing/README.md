@@ -10,7 +10,8 @@ arcadia-landing/
 ├── css/style.css           ← giao diện (màu, font, bố cục)
 ├── js/main.js              ← tương tác + CẤU HÌNH hotline / Google Sheet
 ├── google-apps-script.gs   ← code dán vào Google Sheet để nhận lead
-└── assets/                 ← logo, icon, ảnh (đã nén)
+├── assets/                 ← logo, icon, ảnh (đã nén)
+└── wordpress/              ← bản gộp 1 file để đăng WordPress (tạo bằng build_wp.py)
 ```
 
 ## Các section (theo thứ tự)
@@ -64,8 +65,33 @@ Mở file `index.html` bằng Chrome là xem được. Riêng form chỉ gửi �
 
 ## 4. Đưa lên web
 
-- **WordPress stareal.com.vn**: dùng template Elementor Canvas (trang trắng), rồi upload ảnh và dán code. Có sẵn skill "đăng landing page lên WordPress" để làm tự động.
-- **Hosting riêng hoặc Netlify / Vercel**: upload nguyên thư mục `arcadia-landing`.
+### WordPress stareal.com.vn
+
+Thư mục `wordpress/` chứa bản đã gộp sẵn để đăng lên WordPress:
+
+- `wordpress/arcadia-at-lavila.html`: 1 file duy nhất gồm CSS (đã "đóng khung" trong `#arcadia-lp` để không đụng theme), nội dung và JS. Logo và icon SVG được nhúng thẳng vào file, vì WordPress mặc định chặn upload SVG.
+- `wordpress/images/`: 80 ảnh jpg/png (tên file bắt đầu bằng `arcadia-`) để upload lên Media.
+
+**Đăng bản nháp** bằng Claude Code trên máy tính của bạn (nơi có sẵn chìa khóa WordPress):
+
+1. Kéo code mới nhất về: `git pull`, rồi vào thư mục `arcadia-landing`.
+2. Nói với Claude: *"đăng landing Arcadia lên wordpress, bản nháp"*.
+   - File HTML: `wordpress/arcadia-at-lavila.html`
+   - Thư mục ảnh: `wordpress/images`
+   - Tiêu đề: `Arcadia at Lavila`, đường dẫn: `arcadia-at-lavila`
+3. Claude trả về link xem thử. Bạn duyệt xong mới publish.
+
+**Khi sửa nội dung** (sửa `index.html`, `css/style.css`, `js/main.js`, kể cả `CONFIG` hotline hoặc Google Sheet): chạy lại
+
+```
+python wordpress/build_wp.py
+```
+
+rồi đăng cập nhật (update) trang đã có. Không sửa trực tiếp trong WordPress, vì JS bị mã hóa khi đăng nên sửa ở đó sẽ không có tác dụng.
+
+### Hosting riêng hoặc Netlify / Vercel
+
+Upload nguyên thư mục `arcadia-landing` (không cần thư mục `wordpress/`).
 
 ## Lưu ý
 
